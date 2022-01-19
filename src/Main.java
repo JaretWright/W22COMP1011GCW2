@@ -25,8 +25,8 @@ public class Main {
         for (int i=1; i<=52 ; i++)
             System.out.println(deck.dealTopCard());
 
+        //create a new deck of cards and suffle it
         DeckOfCards deck2 = new DeckOfCards();
-
         deck2.shuffle();
         System.out.println("--------Deck after calling shuffle()--------");
         for (int i=1; i<=52 ; i++)
