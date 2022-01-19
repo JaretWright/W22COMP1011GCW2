@@ -64,13 +64,14 @@ public class Card {
     }
 
     /**
-     * This method returns a list of the valid face names on regular playing cards
+     * This method will return a list of the valid face names
      * @return
      */
     public static List<String> getValidFaceNames()
     {
         return Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace");
     }
+
 
     @Override
     public String toString()
@@ -79,11 +80,12 @@ public class Card {
     }
 
     /**
-     * This method will return the value of the card assuming that ace's are high
-     * 2=2, 3=3, 4=4 ...10=10, jack=11, queen=12, king=13, ace=14
+     * This method will return the value of the card as an int
+     * "2"->2,  "3"->3, "4"->4...."jack"->11, "queen"->12, "king"->13, "ace"->14
      *
-     * getValidFaceNames = "2","3","4","5","6","7","8","9","10","jack","queen","king","ace"
-     * index position       0   1   2   3   4   5   6   7   8     9      10      11     12
+     * getValidFaceNames() -> "2","3","4","5","6","7","8","9","10","jack","queen","king","ace"
+     * index                   0   1   2   3   4   5   6  7     8    9     10       11     12
+     * desired return value    2   3   4   5   6   7   8  9    10   11     12       13     14
      */
     public int getCardValue()
     {

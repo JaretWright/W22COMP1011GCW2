@@ -14,16 +14,22 @@ public class Main {
 
         //creating Card objects
         Card aceOfSpades = new Card("ace","spades");
-        Card jaretsCrazyCard = new Card("2","hearts");
+        Card jaretsCrazyCard = new Card("3","hearts");
 
-        System.out.println(aceOfSpades.getFaceName() + " of " + aceOfSpades.getSuit());
-        aceOfSpades.setSuit("Clubs");
-        System.out.println(aceOfSpades);
-//        aceOfSpades.setSuit("professors");
-        System.out.println(jaretsCrazyCard);
+        System.out.printf("%s has a value of %d%n",aceOfSpades, aceOfSpades.getCardValue());
+        System.out.printf("%s has a value of %d%n",jaretsCrazyCard, jaretsCrazyCard.getCardValue());
 
-        System.out.printf("The value of %s is %d%n",aceOfSpades,aceOfSpades.getCardValue());
-        aceOfSpades.setFaceName("8");
-        System.out.printf("The value of %s is %d%n",aceOfSpades,aceOfSpades.getCardValue());
+        DeckOfCards deck = new DeckOfCards();
+
+        System.out.println("--------Deck after calling the constructor--------");
+        for (int i=1; i<=52 ; i++)
+            System.out.println(deck.dealTopCard());
+
+        DeckOfCards deck2 = new DeckOfCards();
+
+        deck2.shuffle();
+        System.out.println("--------Deck after calling shuffle()--------");
+        for (int i=1; i<=52 ; i++)
+            System.out.println(deck2.dealTopCard());
     }
 }
