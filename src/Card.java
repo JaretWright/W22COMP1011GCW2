@@ -12,7 +12,7 @@ public class Card {
      * @param suit
      */
     public Card(String faceName, String suit) {
-        this.faceName = faceName;
+        setFaceName(faceName);
         setSuit(suit);
     }
 
@@ -20,8 +20,17 @@ public class Card {
         return faceName;
     }
 
+    /**
+     * This method will validate if the argument is a valid face name
+     * @param faceName - i.e. "2", "3", ..."jack", "queen","king","ace"
+     */
     public void setFaceName(String faceName) {
-        this.faceName = faceName;
+        faceName = faceName.toLowerCase();
+
+        if (getValidFaceNames().contains(faceName))
+            this.faceName = faceName;
+        else
+            throw new IllegalArgumentException("Valid face names are: "+getValidFaceNames());
     }
 
     public String getSuit() {
@@ -54,9 +63,30 @@ public class Card {
         return Arrays.asList("spades","clubs","hearts","diamonds");
     }
 
+    /**
+     * This method returns a list of the valid face names on regular playing cards
+     * @return
+     */
+    public static List<String> getValidFaceNames()
+    {
+        return Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace");
+    }
+
     @Override
     public String toString()
     {
         return String.format("%s of %s", faceName, suit);
+    }
+
+    /**
+     * This method will return the value of the card assuming that ace's are high
+     * 2=2, 3=3, 4=4 ...10=10, jack=11, queen=12, king=13, ace=14
+     *
+     * getValidFaceNames = "2","3","4","5","6","7","8","9","10","jack","queen","king","ace"
+     * index position       0   1   2   3   4   5   6   7   8     9      10      11     12
+     */
+    public int getCardValue()
+    {
+        return getValidFaceNames().indexOf(faceName)+2;
     }
 }

@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -13,12 +14,16 @@ public class Main {
 
         //creating Card objects
         Card aceOfSpades = new Card("ace","spades");
-        Card jaretsCrazyCard = new Card("golfNut","professors");
+        Card jaretsCrazyCard = new Card("2","hearts");
 
         System.out.println(aceOfSpades.getFaceName() + " of " + aceOfSpades.getSuit());
         aceOfSpades.setSuit("Clubs");
         System.out.println(aceOfSpades);
 //        aceOfSpades.setSuit("professors");
         System.out.println(jaretsCrazyCard);
+
+        System.out.printf("The value of %s is %d%n",aceOfSpades,aceOfSpades.getCardValue());
+        aceOfSpades.setFaceName("8");
+        System.out.printf("The value of %s is %d%n",aceOfSpades,aceOfSpades.getCardValue());
     }
 }
